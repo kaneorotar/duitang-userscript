@@ -42,6 +42,7 @@ notifytitle.innerHTML = "Loading Image URL list ...";
 notifytitle.style.fontSize = "18px";
 notify.appendChild(notifytitle);
 
+var urltxtcopied = false;
 var urltxt = document.createElement("textarea");
 urltxt.style.width = "495px";
 urltxt.style.height = "165px";
@@ -53,9 +54,12 @@ urltxt.spellcheck = false;
 notify.appendChild(urltxt);
 urltxt.onmouseover=function(){
     urltxt.select();
+    urltxtcopied = true;
 };
-urltxt.onmouseout=function(){
-	notify.style.display = "none";
+notify.onmouseout=function(){
+	if (urltxtcopied) {
+		setTimeout(function(){notify.style.display = "none";},2000);
+	};
 }
 
 var responseb;
