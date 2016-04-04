@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Dowload Duitang Album
 // @namespace    http://rotar.tk/
-// @version      0.2
+// @version      0.2.1
 // @description  Fetch URL of all images in album.
 // @author       Rotar
 // @match        http://www.duitang.com/album/*
