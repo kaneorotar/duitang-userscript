@@ -1,5 +1,5 @@
 # duitang-userscript
-Userscripts for duitang.com
+Userscripts for [堆糖 duitang.com](http://duitang.com)
 
 ## Usage
 1. Install [GreaseMonkey](https://addons.mozilla.org/en-us/firefox/addon/greasemonkey/) (Firefox) or [TamperMonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en) (Chrome).
