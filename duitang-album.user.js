@@ -74,6 +74,7 @@ xhr.onreadystatechange = function() {
 		}
 		if(responseb.data["more"]==1){
 			start = responseb.data["next_start"];
+			notifytitle.innerHTML = "Loading Image URL list ... " + parseInt(start/responseb.data["total"]*100) + "%";
 			lurl = "http://www.duitang.com/napi/blog/list/by_album/?album_id="+albumid+"&limit=100&start="+start;
 			xhr.open('GET', lurl, true);
 			xhr.send(null);
