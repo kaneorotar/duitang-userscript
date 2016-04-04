@@ -6,6 +6,7 @@
 // @author       Rotar
 // @match        http://www.duitang.com/album/*
 // @grant        none
+// @downloadURL  https://github.com/kaneorotar/duitang-userscript/raw/master/duitang-album.user.js
 // ==/UserScript==
 /* jshint -W097 */
 'use strict';
