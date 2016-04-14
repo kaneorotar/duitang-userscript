@@ -1,8 +1,10 @@
 // ==UserScript==
 // @name         Dowload Duitang Album
+// @name:zh-CN   堆糖相册图片抓取
 // @namespace    http://rotar.tk/
 // @version      0.2.1
 // @description  Fetch URL of all images in album.
+// @description:zh-CN  抓取当前堆糖相册所有图片的下载地址。
 // @author       Rotar
 // @match        http://www.duitang.com/album/*
 // @grant        none
