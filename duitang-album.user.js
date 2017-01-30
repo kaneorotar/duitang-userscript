@@ -2,11 +2,11 @@
 // @name         Dowload Duitang Album
 // @name:zh-CN   堆糖相册图片抓取
 // @namespace    http://rotar.tk/
-// @version      0.2.1
+// @version      0.2.2
 // @description  Fetch URL of all images in album.
 // @description:zh-CN  抓取当前堆糖相册所有图片的下载地址。
 // @author       Rotar
-// @match        http://www.duitang.com/album/*
+// @match        http*://www.duitang.com/album/*
 // @grant        none
 // @downloadURL  https://github.com/kaneorotar/duitang-userscript/raw/master/duitang-album.user.js
 // ==/UserScript==
@@ -16,7 +16,6 @@
 // Your code here...
 var albumid = /album\/\?id=([0-9]*)/.exec(window.location.href)[1];
 var start = 0;
-var lurl = "http://www.duitang.com/napi/blog/list/by_album/?album_id="+albumid+"&limit=100&start="+start;
 var urls = "";
 var urlsary = new Array();
 
@@ -77,8 +76,7 @@ xhr.onreadystatechange = function() {
 		if(responseb.data["more"]==1){
 			start = responseb.data["next_start"];
 			notifytitle.innerHTML = "Loading Image URL list ... " + parseInt(start/responseb.data["total"]*100) + "%";
-			lurl = "http://www.duitang.com/napi/blog/list/by_album/?album_id="+albumid+"&limit=100&start="+start;
-			xhr.open('GET', lurl, true);
+			xhr.open('GET', getLURL(start), true);
 			xhr.send(null);
 			console.log("Start Fetching from: "+start);
 		}else{
@@ -94,9 +92,13 @@ xhr.onreadystatechange = function() {
 }
 
 function startfetch(){
-	xhr.open('GET', lurl, true);
+	xhr.open('GET', getLURL(start), true);
 	xhr.send(null);
 	console.log("Start Fetching from: "+start);
+}
+
+function getLURL(startn){
+	return window.location.protocol+"//www.duitang.com/napi/blog/list/by_album/?album_id="+albumid+"&limit=100&start="+startn;
 }
 
 var downbtn = document.createElement("div");
@@ -116,6 +118,7 @@ downbtn.style.fontSize = "18px";
 downbtn.style.zIndex = 10000;
 downbtn.style.cursor = "pointer";
 downbtn.style.transform = "scale(0.7)";
+downbtn.style.filter = "hue-rotate(150deg) saturate(350%)";
 document.body.appendChild(downbtn);
 downbtn.onclick = function(){
 	downbtn.style.display = "none";
